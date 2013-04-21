@@ -86,6 +86,8 @@ int removeInicio() {
 /*
  * Remove o número do fim da lista
  * retorna 1 se a remoção ocorrer sem problemas, -1 caso contrário
+ *
+ * Complexidade: O(n)
  */
 int removeFim() {
 	struct ListaNumero * atual;
@@ -130,6 +132,8 @@ int buscaNumero(int numero) {
 
 /*
  * Conta quantidade de elementos na lista
+ *
+ * Complexidade: O(n)
  */
 int quantidade() {
 	int count = 0;
@@ -150,6 +154,8 @@ int quantidade() {
 /*
  * Coloca no parâmetro 'int * numero' o primeiro número da lista
  * retorna 1 se o número existir, -1 caso a lista esteja vazia.
+ *
+ * Complexidade: O(1)
  */
 
 int primeiro(int * numero) {
@@ -164,6 +170,8 @@ int primeiro(int * numero) {
 /*
  * Coloca no parâmetro 'int * numero' o último número da lista
  * retorna 1 se o número existir, -1 caso a lista esteja vazia.
+ *
+ * Complexidade: O(n)
  */
 
 int ultimo(int * numero) {
