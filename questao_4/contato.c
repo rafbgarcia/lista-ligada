@@ -99,3 +99,56 @@ void show_all() {
     c = c->proximo;
   }
 }
+
+
+int salvar(char *nome) {
+  if(inicio == NULL)
+    return 0;
+
+  FILE *file;
+  Contato *c = inicio;
+
+  file = fopen(nome, "a+");
+
+  while(c != NULL) {
+    fprintf(file, "%d\n", c->identidade);
+    fprintf(file, "%s\n", c->nome);
+    fprintf(file, "%s\n", c->telefone);
+    fprintf(file, "\n");
+
+    c = c->proximo;
+  }
+
+  fclose(file);
+
+  return 1;
+}
+
+
+int abrir(char *nome) {
+  FILE *file;
+  long file_size;
+  char *file_content;
+
+  file = fopen(nome, "r");
+  if(!file)
+    return 0;
+
+
+  fseek(file, 0, SEEK_END); /* Aponta para o fim do arquivo */
+  file_size = ftell(file);  /* Ve qual a posição de leitura */
+  fseek(file, 0, SEEK_SET); /* Aponta para o início do arquivo */
+
+  if(file_size == -1)
+    return 0;
+
+  /* Aloca memória do tamanho do arquivo */
+  file_content = malloc(sizeof(char) * file_size);
+
+  fread(file_content, 1, file_size, file);
+
+  printf("%s", file_content);
+
+  free(file_content);
+  return 1;
+}
