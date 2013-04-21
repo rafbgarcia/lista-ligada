@@ -5,16 +5,13 @@
 
 ListaOrdenada *inicio = NULL;
 
-/**
- * Complexidade: O(n)
- */
 void inserir(int x) {
   ListaOrdenada *novo,
                 *aux = NULL,
                 *item = inicio;
   int cont = 1;
 
-  novo = (ListaOrdenada *) malloc(sizeof(struct ListaOrdenada));
+  novo = (ListaOrdenada *) malloc(sizeof(ListaOrdenada));
   novo->numero = x;
 
   while (item != NULL && cont) {
@@ -33,10 +30,6 @@ void inserir(int x) {
     aux->proximo = novo;
 }
 
-
-/**
- * Complexidade: O(n)
- */
 int remover(int numero) {
   ListaOrdenada *l, *prev = NULL;
   l = inicio;
@@ -59,9 +52,7 @@ int remover(int numero) {
   return 0;
 }
 
-/**
- * Complexidade: O(n)
- */
+
 int buscar(int numero) {
   ListaOrdenada *l = inicio;
 
@@ -73,9 +64,6 @@ int buscar(int numero) {
   return 0;
 }
 
-/**
- * Complexidade: O(n)
- */
 int tamanho() {
   int count = 0;
   ListaOrdenada *cur;
